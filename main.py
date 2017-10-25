@@ -18,11 +18,17 @@ file = open('C:\\Users\\123\\Desktop\\test.txt')
 
 def countLetters(file):
     text = file.read()
+    # Поиск осуществляется по регулярному выражению.
+    # В качестве шаблона выступают латинские буквы.
+    # С вхождением одного латиского символа.
     result = re.findall(r"[a-zA-Z]", text)
     return len(result)
 
 def countWords(file):
     text = file.read()
+    # Поиск осуществляется по регулярному выражению.
+    # В качестве шаблона выступают латинские буквы.
+    # С 1 и более вхождением шаблона слева.
     result = re.findall(r"[a-zA-Z]+", text)
     return len(result)
 
@@ -31,7 +37,7 @@ def countLines(file):
     return len(a)
 
 
-print(countWords(file))
+print(countLetters(file))
 
 
 
