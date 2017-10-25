@@ -16,12 +16,12 @@ import re
 file = open('C:\\Users\\123\\Desktop\\test.txt')
 
 def countLetters(file):
-    text = file.read()
-    result = re.findall(r"[a-zA-Z]+", text)
-    return result
+    pass
 
 def countWords(file):
-    pass
+    text = file.read()
+    result = re.findall(r"[a-zA-Z]+", text)
+    return result.count()
 
 def countLines(file):
     a = file.readlines()
