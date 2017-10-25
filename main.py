@@ -1,5 +1,6 @@
 # Вариант №3
-# 3. Дан файл. Определите сколько в нем букв (латинского алфавита), слов, строк. Выведите три найденных числа в формате, приведенном в примере.
+# 3. Дан файл. Определите сколько в нем букв (латинского алфавита),
+# слов, строк. Выведите три найденных числа в формате, приведенном в примере.
 # Пример входного файла:
 # Beautiful is better than ugly.
 # Explicit is better than implicit.
@@ -21,11 +22,14 @@ def countLetters(file):
 def countWords(file):
     text = file.read()
     result = re.findall(r"[a-zA-Z]+", text)
-    return result.count()
+    return len(result)
 
 def countLines(file):
     a = file.readlines()
     return len(a)
 
-print()
+print(countLines(file))
+print(countWords(file))
+
+
 
