@@ -11,13 +11,14 @@
 # 20 words
 # 4 lines
 
+import re
+
 file = open('C:\\Users\\123\\Desktop\\test.txt')
 
-
-
 def countLetters(file):
-    pass
-
+    text = file.read()
+    result = re.findall(r"[a-zA-Z]+", text)
+    return result
 
 def countWords(file):
     pass
@@ -26,5 +27,5 @@ def countLines(file):
     a = file.readlines()
     return len(a)
 
-print(countLines(file))
+print()
 
