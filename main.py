@@ -22,7 +22,7 @@ def countLetters(file):
     # В качестве шаблона выступают латинские буквы.
     # С вхождением одного латиского символа.
     result = re.findall(r"[a-zA-Z]", text)
-    return len(result)
+    return '%d letters' % len(result)
 
 def countWords(file):
     text = file.read()
@@ -30,14 +30,14 @@ def countWords(file):
     # В качестве шаблона выступают латинские буквы.
     # С 1 и более вхождением шаблона слева.
     result = re.findall(r"[a-zA-Z]+", text)
-    return len(result)
+    return '%d words' % len(result)
 
 def countLines(file):
     a = file.readlines()
-    return len(a)
+    return '%d lines' % len(a)
 
 
-print(countLetters(file))
+print(countWords(file))
 
 
 
