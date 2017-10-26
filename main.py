@@ -32,7 +32,7 @@ def countWords(text):
     return '%d words' % len(result)
 
 def countLines(text):
-    a = text.readlines()
+    a = text.splitlines()
     return '%d lines' % len(a)
 
 
