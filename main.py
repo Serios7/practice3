@@ -15,29 +15,29 @@
 import re
 
 file = open('C:\\Users\\123\\Desktop\\test.txt')
+text = file.read()
 
-def countLetters(file):
-    text = file.read()
+def countLetters(text):
     # Поиск осуществляется по регулярному выражению.
     # В качестве шаблона выступают латинские буквы.
     # С вхождением одного латиского символа.
     result = re.findall(r"[a-zA-Z]", text)
     return '%d letters' % len(result)
 
-def countWords(file):
-    text = file.read()
+def countWords(text):
     # Поиск осуществляется по регулярному выражению.
     # В качестве шаблона выступают латинские буквы.
     # С 1 и более вхождением шаблона слева.
     result = re.findall(r"[a-zA-Z]+", text)
     return '%d words' % len(result)
 
-def countLines(file):
-    a = file.readlines()
+def countLines(text):
+    a = text.readlines()
     return '%d lines' % len(a)
 
 
-print(countWords(file))
-
+print(countLetters(text))
+print(countWords(text))
+print(countLines(text))
 
 
