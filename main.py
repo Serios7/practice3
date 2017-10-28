@@ -14,10 +14,13 @@
 
 import re
 
+path_input = input('Путь к входному файлу: ')
+path_output = input('Путь к выходному файлу: ')
 
-
-input_file = open('input_file.txt')
-text = input_file.read()
+def read_file(path):
+    with open(path) as input_file:
+        text = input_file.read()
+        return text
 
 def count_letters(text):
     # Поиск осуществляется по регулярному выражению.
@@ -37,8 +40,11 @@ def count_lines(text):
     a = text.splitlines()
     return '%d lines' % len(a)
 
-with open('output_file.txt', 'w') as output_file:
-    items = [count_letters(text), count_words(text), count_lines(text)]
-    for item in items:
-        output_file.write("%s\n" % item)
+def print_in_file(path):
+    with open(path, 'w') as output_file:
+        text = read_file(path_input)
+        items = [count_letters(text), count_words(text), count_lines(text)]
+        for item in items:
+            output_file.write("%s\n" % item)
 
+print_in_file(path_output)
