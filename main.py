@@ -14,8 +14,10 @@
 
 import re
 
-file = open('C:\\Users\\123\\Desktop\\test.txt')
-text = file.read()
+input_file = open('input_file.txt')
+text = input_file.read()
+
+output_file = open('output_file.txt', 'w')
 
 def countLetters(text):
     # Поиск осуществляется по регулярному выражению.
