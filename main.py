@@ -14,10 +14,10 @@
 
 import re
 
+
+
 input_file = open('input_file.txt')
 text = input_file.read()
-
-output_file = open('output_file.txt', 'w')
 
 def count_letters(text):
     # Поиск осуществляется по регулярному выражению.
@@ -37,6 +37,8 @@ def count_lines(text):
     a = text.splitlines()
     return '%d lines' % len(a)
 
-
-
+with open('output_file.txt', 'w') as output_file:
+    items = [count_letters(text), count_words(text), count_lines(text)]
+    for item in items:
+        output_file.write("%s\n" % item)
 
