@@ -18,9 +18,14 @@ path_input = input('Путь к входному файлу: ')
 path_output = input('Путь к выходному файлу: ')
 
 def read_file(path):
-    with open(path) as input_file:
-        text = input_file.read()
-        return text
+    try:
+        with open(path) as input_file:
+            text = input_file.read()
+            return text
+    except IOError:
+        return
+
+
 
 def count_letters(text):
     # Поиск осуществляется по регулярному выражению.
@@ -30,10 +35,7 @@ def count_letters(text):
     return '%d letters' % len(result)
 
 def count_words(text):
-    # Поиск осуществляется по регулярному выражению.
-    # В качестве шаблона выступают латинские буквы.
-    # С 1 и более вхождением шаблона слева.
-    result = re.findall(r"[a-zA-Z]+", text)
+    result = re.findall(r"\w+", text)
     return '%d words' % len(result)
 
 def count_lines(text):
@@ -41,10 +43,13 @@ def count_lines(text):
     return '%d lines' % len(a)
 
 def print_in_file(path):
-    with open(path, 'w') as output_file:
-        text = read_file(path_input)
-        items = [count_letters(text), count_words(text), count_lines(text)]
-        for item in items:
-            output_file.write("%s\n" % item)
+    text = read_file(path_input)
+    if text is not None:
+        with open(path, 'w') as output_file:
+            items = [count_letters(text), count_words(text), count_lines(text)]
+            for item in items:
+                output_file.write("%s\n" % item)
+    else:
+        print("Could not read file")
 
 print_in_file(path_output)
