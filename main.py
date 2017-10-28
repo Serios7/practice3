@@ -19,27 +19,24 @@ text = input_file.read()
 
 output_file = open('output_file.txt', 'w')
 
-def countLetters(text):
+def count_letters(text):
     # Поиск осуществляется по регулярному выражению.
     # В качестве шаблона выступают латинские буквы.
     # С вхождением одного латиского символа.
     result = re.findall(r"[a-zA-Z]", text)
     return '%d letters' % len(result)
 
-def countWords(text):
+def count_words(text):
     # Поиск осуществляется по регулярному выражению.
     # В качестве шаблона выступают латинские буквы.
     # С 1 и более вхождением шаблона слева.
     result = re.findall(r"[a-zA-Z]+", text)
     return '%d words' % len(result)
 
-def countLines(text):
+def count_lines(text):
     a = text.splitlines()
     return '%d lines' % len(a)
 
 
-print(countLetters(text))
-print(countWords(text))
-print(countLines(text))
 
 
