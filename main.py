@@ -45,10 +45,13 @@ def count_lines(text):
 def print_in_file(path):
     text = read_file(path_input)
     if text is not None:
-        with open(path, 'w') as output_file:
-            items = [count_letters(text), count_words(text), count_lines(text)]
-            for item in items:
-                output_file.write("%s\n" % item)
+        try:
+            with open(path, 'w') as output_file:
+                items = [count_letters(text), count_words(text), count_lines(text)]
+                for item in items:
+                    output_file.write("%s\n" % item)
+        except IOError:
+            print("No such file or directory: %s" % path)
     else:
         print("Could not read file")
 
